@@ -1,1 +1,2 @@
-# These are some item writed by Gebit Qwin. A junior high school student from Huadu,Guangzhou,Guangdong,China. I enjoy coding
+## 你好! 这是我的项目库, 我享受折腾带给我的乐趣.
+### 这里会时不时更新
