@@ -6,18 +6,19 @@
     <title>说说我的心里话</title>
     <style>
         body {
-            background-color: black;
             overflow: hidden;
             margin: 0;
-            font-family: 'Arial', sans-serif;
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
             text-align: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 40px;
             color: transparent;
             white-space: nowrap;
-            font-size: 40px;
+            position: relative;
+            background-color: black; /* 初始背景为黑色 */
         }
 
         p {
@@ -37,6 +38,14 @@
             animation-delay: 4s;
         }
 
+        .firework {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: explode 0.5s ease-out forwards;
+        }
+
         @keyframes gradientText {
             0% {
                 opacity: 0;
@@ -52,14 +61,6 @@
                 opacity: 0;
                 background-position: 0%;
             }
-        }
-
-        .firework {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            animation: explode 0.5s ease-out forwards;
         }
 
         @keyframes explode {
@@ -81,6 +82,28 @@
                 opacity: 0;
             }
         }
+
+        .image-wrapper {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url('fi.png') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0;
+            animation: fadeIn 2s linear forwards;
+            animation-delay: 6s;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -90,6 +113,8 @@
         <p>我暗恋你很久了</p>
     </div>
 
+    <div class="image-wrapper"></div>
+
     <script>
         function createFirework(x, y) {
             const firework = document.createElement('div');
@@ -98,7 +123,6 @@
             firework.style.top = `${y}px`;
             document.body.appendChild(firework);
 
-            // 在动画结束后移除烟花元素
             firework.addEventListener('animationend', () => {
                 document.body.removeChild(firework);
             });
@@ -108,10 +132,8 @@
             const x = e.clientX;
             const y = e.clientY;
             
-            // 恢复文字可见
             document.querySelector('div').style.color = 'white';
 
-            // 创建烟花
             createFirework(x, y);
         });
     </script>
