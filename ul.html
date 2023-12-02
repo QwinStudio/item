@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>说一下心里话吧</title>
+    <style>
+        body {
+            background-color: black;
+            overflow: hidden;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            color: transparent;
+            white-space: nowrap;
+            font-size: 48px; /* 修改字体大小为48px */
+        }
+
+        p {
+            background: linear-gradient(90deg, #3498db, #e74c3c);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: gradientText 2s linear forwards;
+            opacity: 0;
+            animation-delay: 0s;
+        }
+
+        p:nth-child(2) {
+            animation-delay: 2s;
+        }
+
+        p:nth-child(3) {
+            animation-delay: 4s;
+        }
+
+        p:nth-child(4) {
+            animation-delay: 6s; /* 添加第四行文字的延迟 */
+        }
+
+        p:nth-child(5) {
+            animation-delay: 8s; /* 添加第五行文字的延迟 */
+        }
+
+        @keyframes gradientText {
+            0% {
+                opacity: 0;
+                background-position: 100%;
+            }
+            25% {
+                opacity: 1;
+            }
+            75% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                background-position: 0%;
+            }
+        }
+
+        .firework {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: explode 0.5s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+                background: linear-gradient(90deg, #ff6b6b, #ffb8b8);
+            }
+            25% {
+                background: linear-gradient(90deg, #fd79a8, #ffb8b8);
+            }
+            50% {
+                background: linear-gradient(90deg, #e84393, #ffb8b8);
+            }
+            75% {
+                background: linear-gradient(90deg, #d63031, #ffb8b8);
+            }
+            100% {
+                transform: scale(30);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>你知道吗</p>
+        <p>其实</p>
+        <p>我暗恋你很久了</p>
+        <p>请允许我补一句话</p>
+        <p>我 喜 欢 你 !</p>
+    </div>
+
+    <script>
+        function createFirework(x, y) {
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+            firework.style.left = `${x}px`;
+            firework.style.top = `${y}px`;
+            document.body.appendChild(firework);
+
+            // 在动画结束后移除烟花元素
+            firework.addEventListener('animationend', () => {
+                document.body.removeChild(firework);
+            });
+        }
+
+        document.addEventListener('click', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            // 恢复文字可见
+            document.querySelector('div').style.color = 'white';
+
+            // 创建烟花
+            createFirework(x, y);
+        });
+    </script>
+</body>
+</html>
