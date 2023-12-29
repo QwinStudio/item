@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gebit Qwin | Item</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            background-color: #f9fafb;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to bottom, #f9fafb, #d1d5db);
+            border-bottom: 1px solid #cbd5e0;
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+
+        .logo {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, #ffffff, #f0f0f0);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top: 1px solid #cbd5e0;
+        }
+
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
+
+        .main-content {
+            margin-top: 80px;
+            padding: 2rem;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+
+        .card {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer; /* 设置卡片为可点击 */
+            text-decoration: none; /* 去除超链接的下划线 */
+            color: inherit; /* 继承父元素的颜色 */
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <p>
+            Developed By <code>Cyclone Studio</code>
+        </p>
+    </div>
+
+    <div class="main-content">
+        <!-- Card 1 -->
+        <a href="https://item.gebitqwin.com/2024.html" class="card">
+            <h2>2024 -&gt;</h2>
+            <p>新年项目.</p>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="https://item.gebitqwin.com/mum'sbirthday.html" class="card">
+            <h2>生日html -&gt;</h2>
+            <p>给我妈做的</p>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="https://item.gebitqwin.com/infp.html" class="card">
+            <h2>Infinite Progress -&gt;</h2>
+            <p>无限进步.</p>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="https://item.gebitqwin.com/ul.html" class="card">
+            <h2>??? -&gt;</h2>
+            <p>??????.</p>
+        </a>
+    </div>
+</body>
+</html>
