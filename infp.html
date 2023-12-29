@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Progress</title>
+    <style>
+        @font-face {
+            font-family: 'JFont';
+            src: url('j.ttf') format('truetype'); /* 替换 'path/to/j.ttf' 为实际的字体文件路径 */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #000;
+            color: #fff;
+            font-family: 'JFont', 'Arial', sans-serif; /* 使用自定义字体作为第一选择 */
+        }
+
+        .progress-container {
+            position: relative;
+            width: 100%;
+            height: 5px;
+            overflow: hidden;
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to right, #00ffff, #0000ff); /* 调整渐变色为青色先蓝色后 */
+            animation: progressAnimation 5s linear infinite;
+        }
+
+        @keyframes progressAnimation {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .content {
+            z-index: 1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            white-space: nowrap; /* 确保文本在移动端保持在一行 */
+        }
+
+        /* 新增样式规则，控制没有活动线条时的背景 */
+        .no-progress .progress-container {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-container" id="progress-container">
+        <div class="progress-line"></div>
+    </div>
+    <div class="content">
+        <h1>Infinite Progress</h1>
+    </div>
+
+    <script>
+        // 在没有活动线条时添加类名
+        const progressContainer = document.getElementById('progress-container');
+        const progressLine = document.querySelector('.progress-line');
+
+        progressLine.addEventListener('animationiteration', () => {
+            progressContainer.classList.add('no-progress');
+        });
+
+        progressLine.addEventListener('animationstart', () => {
+            progressContainer.classList.remove('no-progress');
+        });
+    </script>
+</body>
+</html>
